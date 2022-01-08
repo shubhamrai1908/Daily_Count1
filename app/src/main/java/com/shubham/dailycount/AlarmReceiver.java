@@ -15,9 +15,9 @@ public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        Intent intent1=new Intent(context,MainAct.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent= PendingIntent.getActivity(context,0,intent,0);
+        Intent intent1=new Intent(context,MainActivity2.class);
+        intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent= PendingIntent.getActivity(context,0,intent1,0);
 
         NotificationCompat.Builder builder= new NotificationCompat.Builder(context,"dailycount")
                 .setSmallIcon(R.drawable.icon)

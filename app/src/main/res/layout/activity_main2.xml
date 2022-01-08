@@ -19,7 +19,7 @@
             style="@android:style/Widget.DeviceDefault.Light.Button.Borderless.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Notify OFF"
+            android:text="Turn Notification OFF"
             android:textColor="#0C0607"
             android:textSize="10sp"
             android:theme="@android:style/Widget.ListView.White" />
@@ -102,10 +102,17 @@
                 />
         </LinearLayout>
         <Button
+            android:id="@+id/read"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Filled Data"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp" />
+        <Button
             android:id="@+id/calc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Calculate"
+            android:text="Calculate Bill"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp" />
 

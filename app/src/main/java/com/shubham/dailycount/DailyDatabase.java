@@ -5,6 +5,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.text.ParseException;
+import java.util.ArrayList;
+
 public class DailyDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "daily_database";
     private static final String TABLE_NAME1 = "daily_milk";
@@ -54,6 +57,37 @@ public class DailyDatabase extends SQLiteOpenHelper {
         Cursor res = db.rawQuery("select * from "+TABLE_NAME,null);
        // db.close();
         return res;
+    }
+    public void delete(String date)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.execSQL("delete from "+TABLE_NAME1+" where date='"+date+"'");
+        sqLiteDatabase.execSQL("delete from "+TABLE_NAME2+" where date='"+date+"'");
+
+    }
+    public ArrayList<DataSQL> readDataSQL() throws ParseException {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor1 = db.rawQuery("SELECT * FROM " + TABLE_NAME1, null);
+        Cursor cursor2 = db.rawQuery("SELECT * FROM " + TABLE_NAME2, null);
+        String date="dd/mm/yyyy",milkQ="0",waterQ="0";
+        ArrayList<DataSQL> dataSQLS=new ArrayList<>();
+        if(cursor1.moveToFirst())
+            do{
+                date=cursor1.getString(0);
+                if(cursor2.moveToFirst())
+                {
+                    do {
+                        if (cursor2.getString(0).equals(date)) {
+                            milkQ = cursor1.getString(1);
+                            waterQ = cursor2.getString(1);
+                        }
+                    }while (cursor2.moveToNext());
+                }
+                DataSQL dataSQL=new DataSQL(date,milkQ,waterQ);
+                dataSQLS.add(dataSQL);
+
+            }while(cursor1.moveToNext());
+            return dataSQLS;
     }
 
 }

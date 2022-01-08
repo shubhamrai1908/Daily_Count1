@@ -38,7 +38,7 @@ public class MainActivity2 extends AppCompatActivity {
     EditText editText1;
     EditText editText2;
     TextView textView;
-    Button button1,button2,calc,price,cancelA;
+    Button button1,button2,calc,price,cancelA,read;
     DailyDatabase dailyDatabase;
     String date;
     AlarmManager alarmManager;
@@ -52,6 +52,7 @@ public class MainActivity2 extends AppCompatActivity {
         setAlarm();
 
         cancelA=findViewById(R.id.cancelAlarm);
+        read=findViewById(R.id.read);
 
 
         calendarView=findViewById(R.id.calendarView);
@@ -87,8 +88,17 @@ public class MainActivity2 extends AppCompatActivity {
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 editText1.setText("");
                 editText2.setText("");
+                String dd,mm,yyyy;
                 month++;
-                date=dayOfMonth+"/"+month+"/"+year;
+                dd=dayOfMonth+"";
+                mm=month+"";
+                yyyy=year+"";
+                if(dayOfMonth/10==0)
+                    dd="0"+dayOfMonth;
+                if(month/10==0)
+                    mm="0"+month;
+
+                date=dd+"/"+mm+"/"+yyyy;
                 start();
             }
         });
@@ -132,6 +142,13 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity2.this,MainActivity3.class);
+                startActivity(intent);
+            }
+        });
+        read.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity2.this,MainActivity4.class);
                 startActivity(intent);
             }
         });
@@ -227,15 +244,17 @@ public class MainActivity2 extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Really Exit?")
                 .setMessage("Are you sure you want to exit?")
+                .setIcon(R.drawable.icon)
                 .setNegativeButton(android.R.string.no, null)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        finish();
+                        finishAffinity();
                     }
                 }).create().show();
     }
+
 
 
 

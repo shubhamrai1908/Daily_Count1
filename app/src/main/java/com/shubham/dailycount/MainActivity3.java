@@ -110,7 +110,7 @@ public class MainActivity3 extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-               // Toast.makeText(getApplicationContext(),FilterFromDate+"-"+FilterToDate,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),FilterFromDate+"-"+FilterToDate,Toast.LENGTH_LONG).show();
 
                 try {
                     Date d1=convertDate(FilterFromDate);
@@ -119,7 +119,7 @@ public class MainActivity3 extends AppCompatActivity {
                     getData(d1,d2);
 
                 } catch (ParseException e) {
-                    Toast.makeText(getApplicationContext(),"Please Select Dates from above!!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
                 }
 
 

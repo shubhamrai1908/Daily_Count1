@@ -28,7 +28,7 @@ public class ForegroundService extends Service {
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("Daily Count")
                 .setContentText(input)
-                .setSmallIcon(R.mipmap.icon)
+                .setSmallIcon(R.drawable.icon)
                 .setContentIntent(pendingIntent)
                 .build();
         startForeground(1, notification);

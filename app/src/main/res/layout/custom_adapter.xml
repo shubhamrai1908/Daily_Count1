@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:elevation="8dp"
+    app:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:background="@drawable/editbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="5dp"
+        android:weightSum="5"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold|italic"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:text="dd/mm/yyyy"/>
+        <TextView
+            android:layout_weight="0.7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:text="Milk:"/>
+        <TextView
+            android:id="@+id/tv_milk"
+            android:layout_weight="1.3"
+            android:layout_width="wrap_content"
+            android:textStyle="italic"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="0 Litre"/>
+        <TextView
+            android:layout_weight="0.7"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Water:"/>
+        <TextView
+            android:id="@+id/tv_water"
+            android:layout_weight="1.3"
+            android:textStyle="italic"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 Jar"/>
+        <ImageButton
+            android:id="@+id/imagebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete"/>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
